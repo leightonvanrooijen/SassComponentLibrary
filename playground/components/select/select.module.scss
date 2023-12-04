@@ -1,0 +1,113 @@
+@import '../../app/typography.mixins.scss';
+
+.base {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  @include bodyRegular;
+
+  border-width: 1px;
+  border-style: solid;
+
+  position: relative;
+
+  width: var(--width-select, 250px);
+
+  padding: 10px;
+
+  &:focus-visible {
+    outline: none;
+    outline-offset: 2px;
+    box-shadow: 1px 1px 1px #2953a2;
+  }
+
+  .trigger_icon {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  &[data-state="open"] {
+    .trigger_icon {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.primary {
+  border-radius: var(--selectBorderRadius__Primary);
+  border-color: var(--selectBorderColor__Primary);
+  background-color: var(--selectBackgroundColor__Primary);
+  color: var(--selectText__Primary);
+  box-shadow: var(--selectBoxShadow__Primary);
+
+  &:hover:enabled {
+    box-shadow: var(--selectBoxShadowHover__Primary);
+  }
+
+  &[data-placeholder] {
+    color: var(--selectPlaceholder__Primary);
+  }
+}
+
+.primary.disabled {
+  opacity: var(--selectOpacityDisabled__Primary);
+}
+
+.primary.errored {
+  border-color: var(--selectBorderColorError__Primary);
+  box-shadow: var(--selectBoxShadowError__Primary);
+  color: var(--selectTextError__Primary);
+}
+
+.menu_base {
+  display: flex;
+  max-height: 400px;
+  overflow: auto;
+  text-overflow: ellipsis;
+  padding-top: 2px;
+
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  box-shadow: 0 2px 4px 0 #d9d9d9;
+
+  .item_container {
+    display: flex;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .item_content {
+    padding: 10px 10px 10px 6px;
+
+    outline: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.menu_primary {
+  width: var(--radix-select-trigger-width);
+
+  background-color: var(--selectMenuBackgroundColor__Primary);
+  color: var(--selectMenuText__Primary);
+
+  .item_container {
+     box-shadow: var(--selectMenuItemDivider__Primary);
+
+    &[data-highlighted] {
+      background-color: var(--selectMenuItemHover__Primary);
+    }
+
+    &[data-state="checked"] {
+      .item_marker {
+        background-color: var(--selectMenuItemSelectedMarker__Primary);
+      }
+    }
+
+    .selected_item_marker {
+      width: 4px;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@mixin bodyRegular {
+    font-family: var(--bodyFontFamily__Regular);
+    font-size: var(--bodyFontSize__Regular);
+    font-weight: var(--bodyFontWeight__Regular);
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
